@@ -4,6 +4,19 @@ fun main(){
     helloworld()
 
     println(add(4,5))
+
+    // 3. String Template
+    val name = "nana"
+    val lastName = "Ba"
+    println("my name is ${name + lastName}I'm good")
+    println("is this true? ${1==0}")
+    // $뒤 문자가 있을 때 $를 그대로 출력하고 싶으면 \ 사용
+    println("this is 2\$a")
+
+    /*여러 줄 주석*/
+
+    println(maxBy2(1, 6))
+    checkNum(1)
 }
 
 // 1. 함수 (Unit은 생략 권장)
@@ -34,3 +47,49 @@ fun hi(){
     var e : String
 }
 
+// 4. 조건식
+fun maxBy(a : Int, b : Int) : Int {
+    if( a > b ){
+        return a
+    }else{
+        return b
+    }
+}
+// 코틀린에는 삼항 연산자가 없기에 아래와 같이 표현 함
+fun maxBy2(a : Int, b : Int) = if(a>b) a else b
+
+// when은 swich의 역할
+fun checkNum(score : Int) {
+    // Statement
+    when(score){
+        0 -> println("this is 0")
+        1 -> println("this is 1")
+        2,3 -> println("this is 2 or 3")
+        // else 생략 가능
+        else -> println("I don't know")
+    }
+
+    // Expression
+    var b = when(score){
+        1 -> 1
+        2 -> 2
+        // else 필수
+        else -> 3
+    }
+
+    println("b : ${b}")
+
+    when(score){
+        in 90..100 -> println("You are genius")
+        in 10..80 -> println("not bad")
+        // else 생략 가능
+        else -> println("okay")
+    }
+}
+
+// Expression or Statement
+// 값을 반환하면 Expression(표현식)
+// 명령을 지시하는 문장 Statement(문장)
+// 코틀린의 모든 함수는 Expression
+// 자바에는 void가 있지만(리턴값 없는 함수) 코틀린은 Unit을 리턴함
+// if, when문이 자바에서는 Statement로만 사용 가능. 코틀린은 둘 다 사용 가능
