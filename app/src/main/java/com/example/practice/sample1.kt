@@ -93,3 +93,24 @@ fun checkNum(score : Int) {
 // 코틀린의 모든 함수는 Expression
 // 자바에는 void가 있지만(리턴값 없는 함수) 코틀린은 Unit을 리턴함
 // if, when문이 자바에서는 Statement로만 사용 가능. 코틀린은 둘 다 사용 가능
+
+
+// 5. Array and List
+// Array
+// List 1. List(읽기전용) 2. MutableList(읽고 쓰기 모두 가능)
+fun array(){
+    val array = arrayOf(1,2,3) // 초기화
+    val list = listOf(1,2,3) // 초기화
+
+    val array2 = arrayOf(1,"d",3.4f)
+    val list2 = listOf(1,"d",11L)
+
+    array[0] = 3
+    var result = list.get(0)
+
+    // 주소값이 바뀌지 않기에 val을 써도 됨
+    val arrayList = arrayListOf<Int>()
+    arrayList.add(10)
+    arrayList.add(20)
+
+}
