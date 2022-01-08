@@ -96,7 +96,7 @@ fun checkNum(score : Int) {
 
 
 // 5. Array and List
-// Array
+// Array 메모리 할당(초기에 크기 지정)
 // List 1. List(읽기전용) 2. MutableList(읽고 쓰기 모두 가능)
 fun array(){
     val array = arrayOf(1,2,3) // 초기화
