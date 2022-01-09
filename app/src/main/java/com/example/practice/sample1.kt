@@ -17,6 +17,8 @@ fun main(){
 
     println(maxBy2(1, 6))
     checkNum(1)
+
+    forAndWhile()
 }
 
 // 1. 함수 (Unit은 생략 권장)
@@ -113,4 +115,19 @@ fun array(){
     arrayList.add(10)
     arrayList.add(20)
 
+}
+
+// 6. For / While
+fun forAndWhile(){
+    val students = arrayListOf("jerry", "tom", "angela", "ikey")
+
+    for (name in students){
+        println("${name}")
+    }
+
+    var sum : Int = 0
+    for (i in 1..10){
+        sum += i
+    }
+    println(sum)
 }
