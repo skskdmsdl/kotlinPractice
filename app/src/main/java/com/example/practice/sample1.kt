@@ -124,10 +124,33 @@ fun forAndWhile(){
     for (name in students){
         println("${name}")
     }
+    
+    for ((index, name) in students.withIndex()) { // .withIndex 사용하면 index 같이 사용 가능
+        println("${index+1}번째 학생 : ${name}")
+    }
 
     var sum : Int = 0
-    for (i in 1..10){
+    for (i in 1..10){ // 1부터 10까지 *제일 자주 쓰임*
         sum += i
     }
     println(sum)
+    for (i in 1..10 step 2){ // 1부터 10까지 2칸씩 
+        sum += i
+    }
+    println(sum)
+    for (i in 10 downTo 1){ // 10부터 차례로 1까지 
+        sum += i
+    }
+    println(sum)
+    for (i in 1 until 100){ // 1..100과 다른점은 until은 100을 포함하지 않음
+        sum += i
+    }
+    println(sum)
+    
+    var index = 0
+    while(index < 10){
+        println("current index : ${index}")
+        index++
+    }
+    
 }
