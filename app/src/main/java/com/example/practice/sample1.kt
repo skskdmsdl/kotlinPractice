@@ -19,6 +19,8 @@ fun main(){
     checkNum(1)
 
     forAndWhile()
+
+    nullcheck()
 }
 
 // 1. 함수 (Unit은 생략 권장)
@@ -153,4 +155,40 @@ fun forAndWhile(){
         index++
     }
     
+}
+
+// 7. Nullable/ NonNull
+// ?를 마지막에 붙이면 Nullable 타입
+fun nullcheck(){
+    // NPE : Null pointer Exception
+
+    var name : String = "jerry"
+    var nullName : String? = null
+
+    var nameInUpperCase = name.uppercase()
+    var nullNameInUpperCase = nullName?.uppercase() // null이면 null반환, 아니면 uppercase
+
+    // ?: 엘비스 연산자
+    val lastName : String? = null
+    val fullName = name +" "+ (lastName?: "NO lastName")
+    println(fullName)
+
+    // !!
+    ignoreNulls("run")
+
+}
+
+// !! null이 아니야(정말 확실하지 않으면 지양하기)
+fun ignoreNulls(str : String?){
+    val mNotNull : String = str!! // null일리가 절대 없으니까 null아니라고 알려주기!
+    val upper = mNotNull.uppercase()
+
+    val email : String? = "jerry@nana.com"
+    // email이 null이 아니면 {}실행
+    // let은 자신의 receive객체(email)를 람다식 내부로 옮겨줌
+    // email이 null이 아니라면 {}안으로 email을 옮겨줌
+    email?.let{
+        println("my email is ${email}")
+        println("my email is ${it}")
+    }
 }
