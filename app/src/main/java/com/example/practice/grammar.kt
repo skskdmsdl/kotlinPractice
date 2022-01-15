@@ -27,6 +27,8 @@ fun main(){
     println(b.pizzaIsGreate())
 
     println(extendString("gaga", 33))
+
+    println(calculateGrade(97))
 }
 
 // 1-2. 람다와 확장함수
@@ -35,7 +37,19 @@ val pizzaIsGreate : String.() -> String = {
 }
 
 fun extendString(name :String, age : Int) : String {
-    // 하나 있는 파라미터는 it으로 사용 가능
+    // 파라미터가 하나라면 it(예약어)으로 사용 가능
     val introduceMyself : String.(Int) -> String = {"I am ${this} and ${it} years old"}
     return name.introduceMyself(age)
+}
+
+// 1-3. 람다의 Return
+// 파라미터는 여러 타입일 수 있기에 소괄호()를 쓰지 않으면 에러
+// 하지만 리턴하는 타입은 하나이기에 소괄호를 안써줘도 됨
+val calculateGrade : (Int) -> String ={
+    when(it) {
+        in 0..40 -> "fail"
+        in 41..70 -> "pass"
+        in 71..100 -> "perfect"
+        else -> "Error"
+    }
 }
