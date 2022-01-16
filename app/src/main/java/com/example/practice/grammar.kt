@@ -29,6 +29,18 @@ fun main(){
     println(extendString("gaga", 33))
 
     println(calculateGrade(97))
+    println(calculateGrade(971))
+
+    // 파라미터로 들어온 값과 4.2313이 같으면 true 반환/다르면 false 반환
+    val lamda = {number : Double ->
+        number == 4.2313
+    }
+    println(invokeLamda(lamda))
+    // function의 마지막 파라미터가 람다인 경우 ()생략 가능
+    println(invokeLamda({it > 3.22}))
+    println(invokeLamda{it > 3.22})
+
+
 }
 
 // 1-2. 람다와 확장함수
@@ -52,4 +64,10 @@ val calculateGrade : (Int) -> String ={
         in 71..100 -> "perfect"
         else -> "Error"
     }
+}
+
+// 1-4. 람다를 표현하는 여러가지 방법
+// Double을 받고 Boolean을 리턴하는 람다식을 파라미터로 받고, function은 Boolean리턴
+fun invokeLamda(lamda : ((Double) -> Boolean)) : Boolean {
+    return lamda(5.2343)
 }
