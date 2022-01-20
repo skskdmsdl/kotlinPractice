@@ -40,7 +40,6 @@ fun main(){
     println(invokeLamda({it > 3.22}))
     println(invokeLamda{it > 3.22})
 
-
 }
 
 // 1-2. 람다와 확장함수
