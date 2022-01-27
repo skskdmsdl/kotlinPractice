@@ -19,4 +19,26 @@ fun main() {
     println(a)
 
     println(a["10cm"])
+
+    // 불변형 mapPf()
+    val langMap: Map<Int,String> = mapOf(11 to "Java", 22 to "Kotlin", 33 to "C++")
+    for((key, value) in langMap){
+        println("key=$key, value=$value")
+//        key=11, value=Java
+//        key=22, value=Kotlin
+//        key=33, value=C++
+    }
+    println("langMap[22] = ${langMap[22]}") 		//  langMap[22] = Kotlin
+    println("langMap.get(22) = ${langMap.get(22)}") 	//  langMap.get(22) = Kotlin
+    println("langMap.keys = ${langMap.keys}")   	//  langMap.keys = [11, 22, 33]
+
+    // 가변형 mutableMapOf()
+    val capitalCityMap: MutableMap<String,String>   //  선언할 때 키와 값의 자료형을 명시할 수 있음
+            = mutableMapOf("Korea" to "Seoul", "China" to "Beijing", "Japan" to "Tokyo")
+    println(capitalCityMap.values)  //  [Seoul, Beijing, Tokyo]
+    println(capitalCityMap.keys)    //  [Korea, China, Japan]
+
+    capitalCityMap.put("UK","London")	//	요소 추가
+    capitalCityMap.remove("china")		//	요소 삭제
+    println(capitalCityMap) //  {Korea=Seoul, China=Beijing, Japan=Tokyo, UK=London}
 }
